@@ -1,9 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Sites from '../components/dev/Sites.astro';
+import Software from '../components/dev/Software.astro';
+import Contributions from '../components/dev/Contributions.astro';
 ---
 
 <Layout>
-  <nav class='py-2 px-8 sticky top-0 bg-bgcolor w-full'>
+  <nav
+    class='flex flex-col items-start py-2 px-8 sticky top-0 bg-bgcolor w-full'>
     <a
       id=''
       href='/portfolio/'
@@ -11,9 +15,24 @@ import Layout from '../layouts/Layout.astro';
       >orlando</a
     >
     <a
-      href=''
-      class='block text-text hover:text-subtle'
-      ><h1 class='text-4xl'>dev</h1></a
+      href='/portfolio/dev'
+      class='text-text hover:text-subtle'
+      ><h1>dev</h1></a
     >
   </nav>
+  <section
+    class='py-2 px-8'
+    id='sites'>
+    <Sites />
+  </section>
+  <section
+    class='py-2 px-8'
+    id='software'>
+    <Software />
+  </section>
+  <section
+    class='py-2 px-8'
+    id='contributions'>
+    <Contributions />
+  </section>
 </Layout>

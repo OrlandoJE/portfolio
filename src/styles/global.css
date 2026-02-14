@@ -20,8 +20,15 @@
     color: var(--color-text);
     font-weight: 200;
   }
-  h1 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-mono);
+  }
+  h1 {
+    font-weight: 400;
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-2xl;
   }
   a {
     font-family: var(--font-mono);

@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import InStudio from '../components/studio/InStudio.astro';
+import Events from '../components/studio/Events.astro';
 ---
 
 <Layout>
-  <nav class='py-2 px-8 sticky top-0 bg-bgcolor w-full'>
+  <nav
+    class='flex flex-col items-start py-2 px-8 sticky top-0 bg-bgcolor w-full'>
     <a
       id=''
       href='/portfolio/'
@@ -11,9 +14,19 @@ import Layout from '../layouts/Layout.astro';
       >orlando</a
     >
     <a
-      href=''
-      class='block text-text hover:text-subtle'
-      ><h1 class='text-4xl'>studio</h1></a
+      href='/portfolio/studio'
+      class='text-text hover:text-subtle'
+      ><h1>studio</h1></a
     >
   </nav>
+  <section
+    class='py-2 px-8'
+    id='events'>
+    <Events />
+  </section>
+  <section
+    class='py-2 px-8'
+    id='in-studio'>
+    <InStudio />
+  </section>
 </Layout>
