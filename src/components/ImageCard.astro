@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  imagePath: string;
+  altText: string;
+  class?: string;
+}
+
+const {
+  imagePath,
+  altText,
+  class: className,
+} = Astro.props as Props;
+// image path looks like "src/content/blog/blog-slug-1/img1.jpg"
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/**/**/*.{jpeg,jpg,png,gif,webp}',
+);
+
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "/src/assets/**/**/*.{jpeg,jpg,png,gif,webp}". See ImageComponent.astro to debug.`,
+  );
+---
+
+<Image
+  src={images[imagePath]()}
+  alt={altText}
+  class={className}
+/>
