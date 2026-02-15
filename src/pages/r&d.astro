@@ -1,25 +1,9 @@
 ---
+import Navbar from '../components/Navbar.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <nav
-    class='flex flex-col items-start py-16 px-32 sticky top-0 bg-bgcolor w-full'>
-    <a
-      id=''
-      href='/portfolio/'
-      class='text-sm'
-      >orlando</a
-    >
-    <a
-      href='/portfolio/r&d'
-      class='text-text hover:text-subtle'
-      ><h1>r&d</h1></a
-    >
-  </nav>
-  <section
-    class='py-2 px-32'
-    id='sites'>
-     <h2 class='text-muted text-sm mb-4'>coming soon...</h2>
-  </section>
+  <Navbar navText="r&d" />
+  coming soon...
 </Layout>
