@@ -1,22 +1,50 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import TopicLayout from '../../layouts/TopicLayout.astro';
 import ImageCard from '../ImageCard.astro';
 ---
 
-<CategoryLayout>
+<CategoryLayout >
   <h2>commercial</h2>
-  <h3>txc 1st drop</h3>
-  <h3>jugamos creando</h3>
-  <div class='flex space-x-1'>
-    <ImageCard
-      imagePath={'/src/assets/studio/jugamos-creando/jc-oso.webp'}
-      altText='jugamoscreando'
-      class='w-1/2'
-    />
-    <ImageCard
-      imagePath={'/src/assets/studio/jugamos-creando/jc-oso.webp'}
-      altText='jugamoscreando'
-      class='w-1/2'
-    />
-  </div>
+  <TopicLayout topicText="txc 1st drop">
+      <ImageCard
+        imagePath={'/src/assets/studio/commercial/txc/txc_1.jpg'}
+        altText='txc photo 1'
+        class='w-1/2'
+      />
+      <ImageCard
+        imagePath={'/src/assets/studio/commercial/txc/txc_2.jpg'}
+        altText='txc photo 2'
+        class='w-1/2'
+      />
+  </TopicLayout>
+  <TopicLayout topicText="mostringas">
+      <ImageCard
+        imagePath={'/src/assets/studio/commercial/mostringas/mostringas_3.jpg'}
+        altText='mostringas photo 1'
+        class='w-1/3'
+      />
+      <ImageCard
+        imagePath={'/src/assets/studio/commercial/mostringas/mostringas_4.jpg'}
+        altText='mostringas photo 2'
+        class='w-1/3'
+      />
+      <ImageCard
+        imagePath={'/src/assets/studio/commercial/mostringas/mostringas_2.jpg'}
+        altText='mostringas photo 3'
+        class='w-1/3'
+      />
+  </TopicLayout>
+  <TopicLayout topicText="jugamos creando">
+      <ImageCard
+        imagePath={'/src/assets/studio/commercial/jugamos-creando/jc_1.webp'}
+        altText='jugamoscreando'
+        class='w-1/2'
+      />
+      <ImageCard
+        imagePath={'/src/assets/studio/commercial/jugamos-creando/jc_2.webp'}
+        altText='jugamoscreando'
+        class='w-1/2'
+      />
+  </TopicLayout>
 </CategoryLayout>

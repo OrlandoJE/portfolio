@@ -1,0 +1,13 @@
+---
+interface TopicProps {
+  topicText: string;
+}
+const { topicText } = Astro.props as TopicProps;
+---
+
+<section class='pb-4'>
+  <h3 class="pb-0.5">{topicText}</h3>
+  <div class='flex space-x-1'>
+    <slot />
+  </div>
+</section>

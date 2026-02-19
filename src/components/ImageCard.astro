@@ -15,7 +15,7 @@ const {
 // image path looks like "src/content/blog/blog-slug-1/img1.jpg"
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/**/*.{jpeg,jpg,png,gif,webp}',
+  '/src/assets/**/**/**/*.{jpeg,jpg,png,gif,webp}',
 );
 
 if (!images[imagePath])

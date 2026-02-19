@@ -1,7 +1,55 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import TopicLayout from '../../layouts/TopicLayout.astro';
+import ImageCard from '../ImageCard.astro';
 ---
 
 <CategoryLayout>
   <h2>in-studio</h2>
+  <TopicLayout topicText='xv'>
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/xv/xvNikky_2.jpg'}
+      altText='In-studio photo 1'
+      class='w-1/3'
+    />
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/xv/xvNikky_31.jpg'}
+      altText='In-studio photo 2'
+      class='w-1/3'
+    />
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/xv/xvNikky_5.jpg'}
+      altText='In-studio photo 3'
+      class='w-1/3'
+    />
+  </TopicLayout>
+  <TopicLayout topicText='golf'>
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/golf/golf_1.jpg'}
+      altText='In-studio photo 1'
+      class='w-1/3'
+    />
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/golf/golf_3.jpg'}
+      altText='In-studio photo 2'
+      class='w-1/3'
+    />
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/golf/golf_4.jpg'}
+      altText='In-studio photo 3'
+      class='w-1/3'
+    />
+  </TopicLayout>
+  <TopicLayout topicText='portrait'>
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/portrait/portrait_1.jpg'}
+      altText='In-studio portrait photo 1'
+      class='w-2/3 h-fit'
+    />
+    <ImageCard
+      imagePath={'/src/assets/studio/instudio/portrait/portrait_5.jpg'}
+      altText='In-studio portrait photo 2'
+      class='w-1/3'
+    />
+  </TopicLayout>
 </CategoryLayout>
