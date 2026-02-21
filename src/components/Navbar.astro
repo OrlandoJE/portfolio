@@ -6,7 +6,8 @@ interface NavbarProps {
 const { navText } = Astro.props as NavbarProps;
 ---
 
-<nav class='flex flex-col items-start pt-16 pb-4 sticky top-0 bg-bgcolor w-full'>
+<nav
+  class='flex flex-col items-start pt-16 pb-4 sticky top-0 bg-bgcolor w-[120%] mx-[-20%] px-[20%] xl:w-[calc(100%+160rem)] xl:-mx-128 xl:px-128 z-50'>
   <a
     href='/portfolio/'
     class='text-sm'

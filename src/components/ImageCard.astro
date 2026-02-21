@@ -7,11 +7,7 @@ interface Props {
   class?: string;
 }
 
-const {
-  imagePath,
-  altText,
-  class: className,
-} = Astro.props as Props;
+const { imagePath, altText, class: className } = Astro.props as Props;
 // image path looks like "src/content/blog/blog-slug-1/img1.jpg"
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -28,4 +24,32 @@ if (!images[imagePath])
   src={images[imagePath]()}
   alt={altText}
   class={className}
+  id={`open-${imagePath}`}
+  data-dialog-id={`dialog-${imagePath}`}
 />
+
+<dialog
+  id={`dialog-${imagePath}`}
+  class='backdrop:bg-black/80 w-4/5 xl:w-1/2 rounded-md p-0 border-none m-auto overflow-hidden'>
+  <Image
+    src={images[imagePath]()}
+    alt={altText}
+    class='object-contain w-full h-full'
+  />
+</dialog>
+
+<script>
+  const triggerImages = document.querySelectorAll('[data-dialog-id]');
+
+  triggerImages.forEach((img) => {
+    img.addEventListener('click', () => {
+      const dialogId = img.getAttribute('data-dialog-id');
+
+      if (dialogId) {
+        const dialog = document.getElementById(dialogId) as HTMLDialogElement;
+        dialog.showModal();
+        dialog.addEventListener('click', () => dialog.close());
+      }
+    });
+  });
+</script>
