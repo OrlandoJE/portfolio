@@ -52,4 +52,10 @@
   a:hover {
     color: var(--color-text);
   }
+  button {
+    transition: all 0.3s ease-in-out;
+  }
+  .hiddenNav {
+    display: none;
+  }
 }
