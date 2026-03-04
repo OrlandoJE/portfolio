@@ -51,9 +51,13 @@
   }
   a:hover {
     color: var(--color-text);
+    scale: 1.05;
   }
   button {
     transition: all 0.3s ease-in-out;
+  }
+  button:hover {
+    scale: 1.05;
   }
   .hiddenNav {
     display: none;
