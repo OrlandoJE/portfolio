@@ -10,12 +10,12 @@ const { navText } = Astro.props as NavbarProps;
   class='flex justify-between items-center pt-16 pb-4 sticky top-0 bg-bgcolor/60 backdrop-blur-md w-[140%] mx-[-20%] px-[20%] xl:w-[calc(100%+64rem)] xl:-mx-128 xl:px-128 z-50'>
   <div class='flex flex-col items-start'>
     <a
-      href=''
+      href='/'
       class='text-sm'
       >orlando</a
     >
     <a
-      href={`${navText.toLowerCase()}`}
+      href={`/${navText.toLowerCase()}`}
       class='text-text hover:text-subtle'
       ><h1>{navText}</h1></a
     >
