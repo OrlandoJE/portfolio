@@ -39,7 +39,7 @@
   h2 {
     @apply text-xl text-subtle;
   }
-  a {
+  a:not(#custom-link) {
     font-family: var(--font-mono);
     color: var(--color-subtle);
     text-decoration: none;
@@ -49,7 +49,7 @@
     justify-content: center;
     transition: all 0.3s ease-in-out;
   }
-  a:hover {
+  a:not(#custom-link):hover {
     color: var(--color-text);
     scale: 1.05;
   }

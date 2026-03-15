@@ -1,12 +1,29 @@
 ---
+import ExternalLink from '../assets/icons/external-link.svg';
 interface TopicProps {
   topicText: string;
+  page?: string;
 }
-const { topicText } = Astro.props as TopicProps;
+const { topicText, page } = Astro.props as TopicProps;
 ---
 
 <section class='pb-4'>
-  <h3 class="pb-0.5">{topicText}</h3>
+  {
+    page ? (
+      <a
+        href={page}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='inline-flex gap-2 items-center text-text stroke-text hover:text-subtle hover:stroke-subtle transition-all duration-300 ease-in-out'
+        id='custom-link'>
+        <h3 class='pb-0.5'>{topicText}</h3>
+        <ExternalLink class='w-4 h-4 inline-block' />
+      </a>
+    ) : (
+      <h3 class='pb-0.5'>{topicText}</h3>
+    )
+  }
+
   <div class='flex space-x-1'>
     <slot />
   </div>
