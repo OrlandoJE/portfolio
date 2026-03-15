@@ -3,7 +3,7 @@
 
 @theme {
   --font-mono: 'Geist Mono', monospace;
-  --font-sans: 'Geist', sans-serif;
+  --font-sans: 'Geist Mono', sans-serif;
   --color-bgcolor: #050505;
   --color-text: #fafafa;
   --color-subtle: #a3a3a3;
@@ -58,8 +58,5 @@
   }
   button:hover {
     scale: 1.05;
-  }
-  .hiddenNav {
-    display: none;
   }
 }

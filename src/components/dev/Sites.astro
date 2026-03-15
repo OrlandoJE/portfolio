@@ -1,11 +1,63 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import TopicLayout from '../../layouts/TopicLayout.astro';
+import ImageCard from '../ImageCard.astro';
 ---
 
 <CategoryLayout>
   <h2>sites</h2>
-  <h3>jugamos creando</h3>
-  <h3>txc</h3>
-  <h3>logisnay</h3>
-  <h3>devlib</h3>
+  <TopicLayout
+    topicText='jugamos creando'
+    page='https://jugamoscreando.com/'
+    description='
+      Jugamos Creando is a company that sells wooden toys aligned with the
+      Montessori philosophy. The case of study includes the selection of the
+      color palette, which uses neutral tones; product images were photographed,
+      edited, and optimized for the web. Development was implemented with
+      WordPress and WooCommerce.'>
+    <ImageCard
+      imagePath='/src/assets/dev/jugamoscreando/jugamoscreando-1.png'
+      altText='jugamos creando landing page'
+      class='w-1/2'
+    />
+    <ImageCard
+      imagePath='/src/assets/dev/jugamoscreando/jugamoscreando-2.png'
+      altText='jugamos creando products page'
+      class='w-1/2'
+    />
+  </TopicLayout>
+
+  <TopicLayout
+    topicText='logisnay'
+    page='https://www.logisnay.com/index.html'
+    description='LogisNay is a logistics company that needed a webpage to start their
+      online presence and provide customer support. The case study covers color
+      selection, tone of voice, typography, and overall visual design.
+      Development was implemented using HTML, CSS, JavaScript, and PHP.'>
+    <ImageCard
+      imagePath='/src/assets/dev/logisnay/logisnay-1.png'
+      altText='logisnay landing page'
+      class='w-1/2'
+    />
+    <ImageCard
+      imagePath='/src/assets/dev/logisnay/logisnay-2.png'
+      altText='logisnay products page'
+      class='w-1/2'
+    />
+  </TopicLayout>
+  <TopicLayout
+    topicText='devlib'
+    page='https://dev-lib-gamma.vercel.app/'
+    description='DevLib is a library for developers, providing resources and tools to help with web development. The case study covers the design and implementation of the website, including the selection of the color palette and typography.'>
+    <ImageCard
+      imagePath='/src/assets/dev/devLib/devLib-1.png'
+      altText='devlib home page'
+      class='w-1/2'
+    />
+    <ImageCard
+      imagePath='/src/assets/dev/devLib/devLib-2.png'
+      altText='devlib products page'
+      class='w-1/2'
+    />
+  </TopicLayout>
 </CategoryLayout>

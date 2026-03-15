@@ -7,7 +7,7 @@ const { navText } = Astro.props as NavbarProps;
 ---
 
 <nav
-  class='flex justify-between items-center pt-16 pb-4 sticky top-0 bg-bgcolor/60 backdrop-blur-md w-[140%] mx-[-20%] px-[20%] xl:w-[calc(100%+64rem)] xl:-mx-128 xl:px-128 z-50'>
+  class='flex justify-between items-center pt-16 pb-4 sticky top-0 bg-bgcolor/60 backdrop-blur-md w-[140%] mx-[-20%] px-[20%] xl:w-[calc(100%+32rem)] xl:-mx-64 xl:px-64 z-50'>
   <div class='flex flex-col items-start'>
     <a
       href='/'
@@ -20,14 +20,7 @@ const { navText } = Astro.props as NavbarProps;
       ><h1>{navText}</h1></a
     >
   </div>
-  <button
-    class='cursor-pointer h-fit hover:text-subtle'
-    id='contact'
-    >contact me</button
-  >
-  <div
-    id='contact-content'
-    class='hiddenNav gap-4 lg:gap-6 items-center'>
+  <div class='flex gap-4 lg:gap-6 items-center'>
     <a href='mailto:orlandoesparza6@outlook.com'>email</a>
     <a
       href='https://wa.me/523310440089'
@@ -35,27 +28,5 @@ const { navText } = Astro.props as NavbarProps;
       rel='noopener noreferrer'
       >whatsapp</a
     >
-    <button
-      id='close-contact'
-      class='cursor-pointer h-fit text-subtle hover:text-text'>
-      x
-    </button>
   </div>
 </nav>
-<script>
-  const contactButton = document.getElementById('contact');
-  const closeContactButton = document.getElementById('close-contact');
-  const contactContent = document.getElementById('contact-content');
-
-  contactButton?.addEventListener('click', () => {
-    contactButton?.classList.add('hiddenNav');
-    contactContent?.classList.add('flex');
-    contactContent?.classList.remove('hiddenNav');
-  });
-
-  closeContactButton?.addEventListener('click', () => {
-    contactContent?.classList.add('hiddenNav');
-    contactContent?.classList.remove('flex');
-    contactButton?.classList.remove('hiddenNav');
-  });
-</script>

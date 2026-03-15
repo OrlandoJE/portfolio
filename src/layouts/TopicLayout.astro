@@ -3,8 +3,9 @@ import ExternalLink from '../assets/icons/external-link.svg';
 interface TopicProps {
   topicText: string;
   page?: string;
+  description?: string;
 }
-const { topicText, page } = Astro.props as TopicProps;
+const { topicText, page, description } = Astro.props as TopicProps;
 ---
 
 <section class='pb-4'>
@@ -24,6 +25,7 @@ const { topicText, page } = Astro.props as TopicProps;
     )
   }
 
+  {description && <p class='text-subtle mb-1 text-sm'>{description}</p>}
   <div class='flex space-x-1'>
     <slot />
   </div>

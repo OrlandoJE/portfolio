@@ -1,8 +1,24 @@
 ---
-import CategoryLayout from "../../layouts/CategoryLayout.astro"
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import TopicLayout from '../../layouts/TopicLayout.astro';
+import ImageCard from '../ImageCard.astro';
 ---
 
 <CategoryLayout>
   <h2>contributions</h2>
-  <h3>stack sorted</h3>
+  <TopicLayout
+    topicText='stack sorted'
+    page='https://stacksorted.com/buttons'
+    description='Contribution to an open-source project that categorizes websites, made by Juxtopposed. Through PR #56 I made sidebar and main-grid scrollable for better UX.'>
+    <ImageCard
+      imagePath='/src/assets/dev/stacksorted/stacksorted-1.png'
+      altText='Stack Sorted contribution 1'
+      class='w-1/2'
+    />
+    <ImageCard
+      imagePath='/src/assets/dev/stacksorted/stacksorted-2.png'
+      altText='Stack Sorted contribution 2'
+      class='w-1/2'
+    />
+  </TopicLayout>
 </CategoryLayout>
