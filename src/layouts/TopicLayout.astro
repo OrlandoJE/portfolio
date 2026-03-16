@@ -4,11 +4,17 @@ interface TopicProps {
   topicText: string;
   page?: string;
   description?: string;
+  class?: string;
 }
-const { topicText, page, description } = Astro.props as TopicProps;
+const {
+  topicText,
+  page,
+  description,
+  class: topicClass,
+} = Astro.props as TopicProps;
 ---
 
-<section class='pb-4'>
+<section class={'pb-4'}>
   {
     page ? (
       <a
@@ -26,7 +32,7 @@ const { topicText, page, description } = Astro.props as TopicProps;
   }
 
   {description && <p class='text-subtle mb-1 text-sm'>{description}</p>}
-  <div class='flex space-x-1'>
+  <div class={`flex space-y-1 ${topicClass || 'space-x-1'}`}>
     <slot />
   </div>
 </section>

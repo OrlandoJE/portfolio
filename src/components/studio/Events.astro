@@ -1,7 +1,42 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import TopicLayout from '../../layouts/TopicLayout.astro';
+import ImageCard from '../ImageCard.astro';
 ---
 
 <CategoryLayout>
   <h2>events</h2>
+  <TopicLayout
+    topicText='xv'
+    class='flex flex-col'>
+    <div class='flex space-x-1'>
+      <ImageCard
+        imagePath='/src/assets/studio/events/xvNikky/FiestaxvNikky-1.jpg'
+        altText='In-studio photo 1'
+        class='w-1/3'
+      />
+      <ImageCard
+        imagePath='/src/assets/studio/events/xvNikky/FiestaxvNikky-2.jpg'
+        altText='In-studio photo 2'
+        class='w-1/3'
+      />
+      <ImageCard
+        imagePath='/src/assets/studio/events/xvNikky/FiestaxvNikky-3.jpg'
+        altText='In-studio photo 3'
+        class='w-1/3'
+      />
+    </div>
+    <div class='flex space-x-1'>
+      <ImageCard
+        imagePath='/src/assets/studio/events/xvNikky/FiestaxvNikky-4.jpg'
+        altText='In-studio photo 1'
+        class='w-1/2'
+      />
+      <ImageCard
+        imagePath='/src/assets/studio/events/xvNikky/FiestaxvNikky-5.jpg'
+        altText='In-studio photo 2'
+        class='w-1/2'
+      />
+    </div>
+  </TopicLayout>
 </CategoryLayout>
