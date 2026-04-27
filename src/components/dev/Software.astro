@@ -1,9 +1,17 @@
 ---
-import CategoryLayout from "../../layouts/CategoryLayout.astro"
+import CategoryLayout from "../../layouts/CategoryLayout.astro";
+import TopicLayout from "../../layouts/TopicLayout.astro";
 ---
+
 <CategoryLayout>
-<h2>software</h2>
-<h3>teorIA del caso</h3>
-<h3>navigation assistant</h3>
-<h3>point of sale</h3>
+  <h2>software</h2>
+  <TopicLayout
+    topicText="teorIA del caso"
+    page="https://delcaso.orlandoje.com/"
+    description="TeorIA del Caso is a platform designed to assist Mexican lawyers in the strategic construction of court cases through bespoke AI. The project involved personalizing an AI model with the expertise of legal professionals to ensure procedural accuracy in litigation environments. Development was implemented with Next.js to provide a secure, high-performance web experience."
+  />
+  <TopicLayout
+    topicText="navigation assistant"
+    description=""
+  />
 </CategoryLayout>
