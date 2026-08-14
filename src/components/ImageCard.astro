@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 interface Props {
   imagePath: string;
@@ -11,7 +11,7 @@ const { imagePath, altText, class: className } = Astro.props as Props;
 // image path looks like "src/content/blog/blog-slug-1/img1.jpg"
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/**/**/*.{jpeg,jpg,png,gif,webp}',
+  "/src/assets/**/**/**/*.{jpeg,jpg,png,gif,webp}",
 );
 
 if (!images[imagePath])
@@ -23,32 +23,33 @@ if (!images[imagePath])
 <Image
   src={images[imagePath]()}
   alt={altText}
-  class={`rounded-xs hover:scale-[1.015] hover:rounded-md transition-all duration-300 ${className}`}
+  class={`rounded-xs hover:scale-[1.015] hover:rounded-md transition-all duration-300 ${className} bg-gray-400 animate-pulse opacity-0`}
+  onload="this.classList.remove('opacity-0', 'animate-pulse', 'bg-gray-400')"
   id={`open-${imagePath}`}
   data-dialog-id={`dialog-${imagePath}`}
 />
 
 <dialog
   id={`dialog-${imagePath}`}
-  class='backdrop:bg-black/80 bg-transparent rounded-md p-0 border-none outline-none m-auto'>
+  class="backdrop:bg-black/80 bg-transparent rounded-md p-0 border-none outline-none m-auto">
   <Image
     src={images[imagePath]()}
     alt={altText}
-    class='object-contain max-h-[80vh] max-w-[80vw]'
+    class="object-contain max-h-[80vh] max-w-[80vw]"
   />
 </dialog>
 
 <script>
-  const triggerImages = document.querySelectorAll('[data-dialog-id]');
+  const triggerImages = document.querySelectorAll("[data-dialog-id]");
 
   triggerImages.forEach((img) => {
-    img.addEventListener('click', () => {
-      const dialogId = img.getAttribute('data-dialog-id');
+    img.addEventListener("click", () => {
+      const dialogId = img.getAttribute("data-dialog-id");
 
       if (dialogId) {
         const dialog = document.getElementById(dialogId) as HTMLDialogElement;
         dialog.showModal();
-        dialog.addEventListener('click', () => dialog.close());
+        dialog.addEventListener("click", () => dialog.close());
       }
     });
   });
