@@ -13,16 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup pnpm and Node.js
+        uses: pnpm/setup@v2
         with:
           version: 11
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 26
-          cache: 'pnpm'
+          runtime: node@26
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
@@ -31,7 +26,7 @@ jobs:
         run: pnpm run build
 
       - name: Sync to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.4
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
