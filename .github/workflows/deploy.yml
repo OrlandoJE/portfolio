@@ -5,19 +5,28 @@ on:
     branches: [master]
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   web-deploy:
     name: Build and Upload
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup pnpm and Node.js
-        uses: pnpm/setup@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          version: 11
-          runtime: node@26
+          node-version: 24
+          cache: 'pnpm'
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
@@ -26,10 +35,11 @@ jobs:
         run: pnpm run build
 
       - name: Sync to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /public_html/
+          server-dir: public_html/
+          port: 21
