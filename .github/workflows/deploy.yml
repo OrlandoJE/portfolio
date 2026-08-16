@@ -2,7 +2,9 @@ name: Deploy Astro Site to Hostinger
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
+    
+  workflow_dispatch:
 
 jobs:
   web-deploy:
