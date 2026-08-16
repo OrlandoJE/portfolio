@@ -36,8 +36,8 @@ jobs:
       - name: Build Project
         run: pnpm run build
 
-      - name: Sync to Hostinger via FTP (Latest v4)
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: Sync to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
