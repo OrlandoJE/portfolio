@@ -2,7 +2,7 @@ name: Deploy Astro Site to Hostinger
 
 on:
   push:
-    branches: [master]
+    branches: [master, main]
   workflow_dispatch:
 
 concurrency:
@@ -13,19 +13,21 @@ jobs:
   web-deploy:
     name: Build and Upload
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: Install pnpm (Latest)
         uses: pnpm/action-setup@v4
+        with:
+          version: latest
 
-      - name: Setup Node.js
+      - name: Setup Node.js (Latest Current Release)
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 'latest'
           cache: 'pnpm'
 
       - name: Install Dependencies
@@ -34,8 +36,8 @@ jobs:
       - name: Build Project
         run: pnpm run build
 
-      - name: Sync to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Sync to Hostinger via FTP (Latest v4)
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
