@@ -40,17 +40,19 @@ if (!images[imagePath])
 </dialog>
 
 <script>
-  const triggerImages = document.querySelectorAll("[data-dialog-id]");
+  document.addEventListener("astro:page-load", () => {
+    const triggerImages = document.querySelectorAll("[data-dialog-id]");
 
-  triggerImages.forEach((img) => {
-    img.addEventListener("click", () => {
-      const dialogId = img.getAttribute("data-dialog-id");
+    triggerImages.forEach((img) => {
+      img.addEventListener("click", () => {
+        const dialogId = img.getAttribute("data-dialog-id");
 
-      if (dialogId) {
-        const dialog = document.getElementById(dialogId) as HTMLDialogElement;
-        dialog.showModal();
-        dialog.addEventListener("click", () => dialog.close());
-      }
+        if (dialogId) {
+          const dialog = document.getElementById(dialogId) as HTMLDialogElement;
+          dialog.showModal();
+          dialog.addEventListener("click", () => dialog.close());
+        }
+      });
     });
   });
 </script>
