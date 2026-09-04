@@ -1,17 +1,32 @@
 ---
 import CategoryLayout from "../../layouts/CategoryLayout.astro";
 import TopicLayout from "../../layouts/TopicLayout.astro";
+import ImageCard from "../ImageCard.astro";
 ---
 
 <CategoryLayout>
   <h2>software</h2>
   <TopicLayout
+    topicText="qe desk"
+    description="QE Desk is a software solution designed to streamline the management of quality assurance processes within organizations. The platform offers a comprehensive suite of tools for tracking, reporting, and analyzing quality metrics, enabling teams to maintain high standards and improve operational efficiency. Development was implemented using modern web technologies to ensure a responsive and user-friendly experience.">
+    <ImageCard
+      imagePath="/src/assets/dev/qedesk/qedesk-1.png"
+      altText="QE Desk application"
+      class="w-1/2"
+    />
+    <ImageCard
+      imagePath="/src/assets/dev/qedesk/qedesk-2.png"
+      altText="QE Desk dashboard"
+      class="w-1/2"
+    />
+  </TopicLayout>
+  <!-- <TopicLayout
     topicText="teorIA del caso"
     page="https://delcaso.orlandoje.com/"
     description="TeorIA del Caso is a platform designed to assist Mexican lawyers in the strategic construction of court cases through bespoke AI. The project involved personalizing an AI model with the expertise of legal professionals to ensure procedural accuracy in litigation environments. Development was implemented with Next.js to provide a secure, high-performance web experience."
-  />
-  <TopicLayout
+  /> -->
+  <!-- <TopicLayout
     topicText="navigation assistant"
     description=""
-  />
+  /> -->
 </CategoryLayout>
