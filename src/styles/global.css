@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
 
 @theme {
-  --font-mono: 'Geist Mono', monospace;
-  --font-sans: 'Geist Mono', sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  --font-text: "Geist", sans-serif;
+  --font-titles: "EB Garamond", serif;
   --color-bgcolor: #050505;
   --color-text: #fafafa;
   --color-subtle: #a3a3a3;
@@ -15,30 +16,36 @@
   body {
     margin: 0;
     width: 100%;
-    font-family: var(--font-sans);
+    font-family: var(--font-text);
     background-color: var(--color-bgcolor);
     color: var(--color-text);
     font-weight: 200;
+    font-optical-sizing: auto;
     box-sizing: border-box;
   }
   body {
     @apply px-[10%] xl:px-64;
   }
   h1,
-  h2,
+  h2 {
+    font-family: var(--font-titles);
+  }
   h3,
   h4,
   h5,
   h6 {
-    font-family: var(--font-mono);
+    font-weight: 200;
+    font-family: var(--font-text);
   }
   h1 {
     font-weight: 400;
-    @apply text-4xl;
+    @apply text-5xl;
   }
   h2 {
-    @apply text-xl text-subtle;
+    font-weight: 400;
+    @apply text-2xl text-subtle;
   }
+
   a:not(#custom-link) {
     font-family: var(--font-mono);
     color: var(--color-subtle);
