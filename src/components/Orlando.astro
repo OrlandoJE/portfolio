@@ -1,4 +1,8 @@
-<main class="flex flex-col justify-center items-center w-full h-svh">
+---
+import DownArrow from "./DownArrow.astro";
+---
+
+<main class="relative flex flex-col justify-center items-center w-full h-svh">
   <h1 class="mb-1">orlando</h1>
   <nav class="flex flex-col justify-center items-center text-lg">
     <a href="/studio">studio</a>
@@ -6,6 +10,9 @@
     <a href="/r&d">r&d</a>
     <!-- <a href='/blog'>blog</a> -->
   </nav>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2">
+    <DownArrow />
+  </div>
 </main>
 
 <style>

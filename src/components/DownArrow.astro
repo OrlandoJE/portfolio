@@ -1,0 +1,87 @@
+---
+// DownArrow.astro
+const { class: className } = Astro.props;
+---
+
+<div
+  data-scroll-hint
+  class:list={[
+    "flex flex-col items-center -space-y-1.5 text-subtle transition-opacity duration-300",
+    className,
+  ]}
+  aria-hidden="true">
+  <svg
+    class="scroll-arrow h-3 w-3"
+    style="--delay: 250ms"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M6 9l6 6 6-6"></path>
+  </svg>
+  <svg
+    class="scroll-arrow h-3 w-3"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M6 9l6 6 6-6"></path>
+  </svg>
+</div>
+
+<script>
+  const hint = document.querySelector<HTMLElement>("[data-scroll-hint]");
+
+  const update = () => {
+    hint?.classList.toggle("is-hidden", window.scrollY > 20);
+  };
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+</script>
+
+<style>
+  .scroll-arrow {
+    animation: scroll-hint 3.7s ease-in-out var(--delay, 0s) infinite backwards;
+  }
+
+  .is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .is-hidden .scroll-arrow {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-hint {
+    0% {
+      opacity: 0;
+      transform: translateY(-3px);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    75%,
+    100% {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-arrow {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

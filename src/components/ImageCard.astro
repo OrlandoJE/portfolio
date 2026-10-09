@@ -23,8 +23,7 @@ if (!images[imagePath])
 <Image
   src={images[imagePath]()}
   alt={altText}
-  class={`rounded-xs hover:scale-[1.015] hover:rounded-md transition-all duration-300 ${className} bg-gray-400 animate-pulse opacity-0`}
-  onload="this.classList.remove('opacity-0', 'animate-pulse', 'bg-gray-400')"
+  class={`rounded-xs hover:scale-[1.015] hover:rounded-md transition-[transform,border-radius,filter] duration-500 ${className} breath`}
   id={`open-${imagePath}`}
   data-dialog-id={`dialog-${imagePath}`}
 />
@@ -39,8 +38,46 @@ if (!images[imagePath])
   />
 </dialog>
 
+<style is:global>
+  .breath {
+    background-color: #1f2937;
+    filter: contrast(0) brightness(0.35);
+    animation: breath 0.4s ease-in-out both;
+    animation-play-state: paused;
+  }
+
+  .breath.is-loaded {
+    animation-play-state: running;
+  }
+
+  @keyframes breath {
+    0% {
+      filter: contrast(0) brightness(0.35);
+    }
+
+    50% {
+      filter: contrast(0.35) brightness(0.7);
+    }
+
+    100% {
+      filter: contrast(1) brightness(1);
+    }
+  }
+</style>
+
 <script>
   document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll<HTMLImageElement>("img.breath").forEach((img) => {
+      if (img.dataset.breathReady) return;
+      img.dataset.breathReady = "true";
+
+      const reveal = () => img.classList.add("is-loaded");
+
+      if (img.complete && img.naturalWidth > 0) reveal();
+      else img.addEventListener("load", reveal, { once: true });
+    });
+
+    // Dialog logic
     const triggerImages = document.querySelectorAll("[data-dialog-id]");
 
     triggerImages.forEach((img) => {
